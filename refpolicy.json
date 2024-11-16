@@ -1,0 +1,69 @@
+{ 
+
+  "version": "2012-10-17",
+  "statement": [
+     {
+         "Effect": "Allow",
+         "Principal": { 
+            "Federated" : "arn:aws:iam::XXXXXXXXXXXX:oidc-provider/token.actions.githubusercontent.com"
+
+     },
+     "Action":"sts:AssumeRoleWithWebIdentity",
+     "condition": {
+        "StringLike": {
+            "token.actions.githubusercontent.com:sub" : [
+                "repo:FarStep131/go-sample-server:*",
+                "repo:FarStep131/aws-ecs-terraform:*"
+            ]
+        }
+     }
+    }
+  ]
+  
+}
+
+//復習2
+
+{
+   "version ": "2012-10-17",
+   "statement": [
+    {
+      "Effect": "Alllow",
+      "Principal": {
+        "Federated": "arn:aws:iam:XXXXXXXXXXXX:oidc-provider/token.actions.githubusercontent.com"
+     },
+      "Action": "sts:AssumeRoleWithAWebIdentify",
+      "condition": {
+        "StringLike": {
+            "token.actions.githubusercontent.com:sub": [
+              "repo:FarStep131/go-sample-server:*",
+              "repo:FarStep131/aws-ecs-terraform:*"
+            ]
+        }
+      }
+    }
+   ]
+}
+
+//復習３回目
+{
+  "Version": "2012-10-17",
+  "Statement":[
+ {
+     "Effect": "Allow",
+     "Action": [
+      "ecr:GetAuthorizationToken",
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:GetDownloadUrlForLayer",
+      "logs:CreteLogStream",
+      "logs:PutLogEvents"
+    ],
+    "Resource": "*"
+  }
+  ]
+}
+
+
+
+
+
